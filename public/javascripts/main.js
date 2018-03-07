@@ -12,7 +12,7 @@ $(document).ready(function(){
     });*/
 
     $("#inpform").submit(function(e) {
-        var url = "/countrypie"; // the script where you handle the form input.
+        var url = "/satavgpie"; // the script where you handle the form input.
         $.ajax({
                type: "POST",
                url: url,

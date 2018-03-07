@@ -50,6 +50,30 @@ router.get('/countrypie', function(req, res, next) {
   console.log('am here - '+q);
 });
 
+router.post('/satavgpie', function(req, res, next) {
+  var s = req.body.start;
+  var e = req.body.end;
+
+  var q = "select avg(sat_avg) as avg,state from Education where unitid between "+s+" and "+e+" group by state limit 10";
+  start = new Date().getTime();
+  console.log('start = '+start);
+
+  connection.query(q, function(err, rows, fields) {
+    end = new Date().getTime();
+    console.log('end = '+end);
+
+    diff = (end-start)/1000 + 'sec';
+    if (!err){
+      console.log('%o',rows);
+      res.json(rows);
+      //res.send('success. The time taken for execution is: '+diff);
+    }
+    else{
+      console.log('error %o',err);
+      res.send('error '+diff);
+    }
+  });
+
 router.post('/earthquake', function(req, res, next) {
   var longitude = req.body.longitude;
   var latitude = req.body.latitude;
