@@ -54,7 +54,7 @@ router.post('/satavgpie', function(req, res, next) {
   var s = req.body.start;
   var e = req.body.end;
 
-  var q = "select avg(sat_avg) as avg,state from Education where unitid between "+s+" and "+e+" group by state limit 10";
+  var q = "select avg(sat_avg) as average,state from Education where unitid between "+s+" and "+e+" group by state limit 10";
   start = new Date().getTime();
   console.log('start = '+start);
 

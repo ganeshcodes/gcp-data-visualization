@@ -20,10 +20,10 @@ $(document).ready(function(){
                success: function(resp)
                {
                     console.log('%o',resp);
-                    data = [['CountryCode', 'Count']];
+                    data = [['State', 'Average']];
                     for(var i in resp){
                         row = resp[i];
-                        data.push([row.CountryCode, parseInt(row.count)])
+                        data.push([row.state, parseInt(row.average)])
                     }
                     console.log('%o',data);
                     drawChart(data);
