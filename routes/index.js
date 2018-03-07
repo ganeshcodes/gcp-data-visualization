@@ -58,21 +58,22 @@ router.post('/satavgpie', function(req, res, next) {
   start = new Date().getTime();
   console.log('start = '+start);
 
-  connection.query(q, function(err, rows, fields) {
-    end = new Date().getTime();
-    console.log('end = '+end);
+    connection.query(q, function(err, rows, fields) {
+      end = new Date().getTime();
+      console.log('end = '+end);
 
-    diff = (end-start)/1000 + 'sec';
-    if (!err){
-      console.log('%o',rows);
-      res.json(rows);
-      //res.send('success. The time taken for execution is: '+diff);
-    }
-    else{
-      console.log('error %o',err);
-      res.send('error '+diff);
-    }
-  });
+      diff = (end-start)/1000 + 'sec';
+      if (!err){
+        console.log('%o',rows);
+        res.json(rows);
+        //res.send('success. The time taken for execution is: '+diff);
+      }
+      else{
+        console.log('error %o',err);
+        res.send('error '+diff);
+      }
+    });
+});
 
 router.post('/earthquake', function(req, res, next) {
   var longitude = req.body.longitude;
