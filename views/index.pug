@@ -1,34 +1,7 @@
 extends layout
 
 block content
-  h1 User Details
-  p User Name #{name}
-  input(name='age', type='text', value=age)
-
-block content
   h1= title
-  a(href='/loaddata') Load CSV
-
-  form(action='/earthquake' method='post')
-    label Latitude
-    input(name='latitude' value='0')   
-    label Longitude
-    input(name='longitude' value='0') 
-    label mag
-    input(name='mag' value='0') 
-    label net
-    input(name='net' value='0') 
-    label place
-    input(name='place' value='0') 
-    button(type='button' class='submitbtn') Submit
-
-  each row in rows
-    p Time : #{row.time}
-    p Latitude : #{row.latitude}
-    p Longitude : #{row.longitude}
-    p Mag : #{row.mag}
-    p Net : #{row.net}
-    p Place : #{row.place}
-    hr
-
-  div#piechart
+  a(href='/loadstar') Load Starbucks CSV
+  button(class='btn countrypiebtn') Country Pie Chart
+  div#piediv

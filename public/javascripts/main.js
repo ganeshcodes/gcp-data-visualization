@@ -1,23 +1,22 @@
 $(document).ready(function(){
-    $('.submitbtn').click(function(){
-        // Ajax call to get results from db
-        $.ajax({url: "/countrypiechart", success: function(result){
-            chartdata = [['CountryCode', 'Count']];
-            for(var index in result){
-                row = result[index];
-                chartdata.push([row.CountryCode, parseInt(row.cnt)])
+    $('.countrypiebtn').click(function(){
+        $.ajax({url: "/countrypie", success: function(resp){
+            data = [['CountryCode', 'Count']];
+            for(var i in resp){
+                row = resp[i];
+                data.push([row.CountryCode, parseInt(row.count)])
             }
-            console.log('%o',chartdata);
-            drawChart(chartdata);
+            console.log('%o',data);
+            drawChart(data);
         }});
     });
 });
 
-function drawChart(chartdata) {
+function drawChart(data) {
     var data = google.visualization.arrayToDataTable(chartdata);
     var options = {
-        title: 'Country Pie Chart'
+        title: 'Country Pie'
     };
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    var chart = new google.visualization.PieChart(document.getElementById('piediv'));
     chart.draw(data, options);
 }
