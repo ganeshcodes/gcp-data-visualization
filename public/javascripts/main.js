@@ -13,7 +13,7 @@ $(document).ready(function(){
 });
 
 function drawChart(data) {
-    var data = google.visualization.arrayToDataTable(chartdata);
+    var data = google.visualization.arrayToDataTable(data);
     var options = {
         title: 'Country Pie'
     };
