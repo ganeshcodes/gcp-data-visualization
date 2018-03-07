@@ -56,3 +56,15 @@ create table Education (
 
 )
 LOAD DATA INFILE '/var/lib/mysql-files/Education.csv' INTO TABLE Education FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (unitid,opeid,opeid6,instnm,city,state,instrul,@sat_avg,@graddept) SET sat_avg = nullif(@sat_avg,'NULL'),graddept = nullif(@graddept,'PrivacySuppressed');
+
+LOAD DATA LOCAL INFILE '/var/lib/mysql/StateVotingClean.csv' INTO TABLE Statevoting FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (StateName,@TotalPop,@VotePop,@Registered,PercentReg,@Voted,PercentVote) set TotalPop = replace(@TotalPop,',',''),VotePop = replace(@VotePop,',',''),Registered = replace(@Registered,',',''),Voted = replace(@Voted,',','');
+create table Statevoting(
+    id int not null auto_increment PRIMARY KEY,
+    StateName varchar(200),
+    TotalPop varchar(50),
+    VotePop varchar(50),
+    Registered varchar(50),
+    PercentReg decimal(3,1),
+    Voted varchar(50),
+    PercentVote decimal(3,1)
+);

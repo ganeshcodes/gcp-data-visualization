@@ -4,4 +4,11 @@ block content
   h1= title
   a(href='/loadstar') Load Starbucks CSV
   button(class='btn countrypiebtn') Country Pie Chart
+  form(id="inpform" method='post')
+    label start
+    input(name='start' value='0')   
+    label end
+    input(name='end' value='0')   
+    button(type='submit' class='submitbtn') Submit
+
   div#piediv(style="width: 400px; height: 400px;border: 1px solid red")
