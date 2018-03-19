@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   a(href='/loadstar') Load Starbucks CSV
-  button(class='btn countrypiebtn') Country Pie Chart
+  button(class='btn btn-success countrypiebtn') Country Pie Chart
   form(id="inpform" method='post')
     label start
     input(name='start' value='0')   
@@ -12,7 +12,7 @@ block content
     button(type='submit' class='submitbtn') Submit
 
   
-  button(class='btn countrylinebtn') Country Line Chart
+  button(class='btn btn-success countrylinebtn') Country Line Chart
 
   div#piediv(style="width: 400px; height: 400px;border: 1px solid red")
-  div#linediv(style="width: 400px; height: 400px;border: 1px solid red")
+  div#linediv(style="width: 800px; height: 400px;border: 1px solid red")
